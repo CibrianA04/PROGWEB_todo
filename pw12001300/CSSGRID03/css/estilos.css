@@ -1,0 +1,67 @@
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    min-height: 100vh; /* viewport height (alto del dispositivo)*/
+    padding: 20px;
+}
+.contenedor > * {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+/* Diseño inicial: MOBILE FIRST*/
+.contenedor{
+    display: grid;
+    gap: 20px;
+    grid-template: 
+    "header" 150px
+    "navbar" 50px
+    "main" 100px
+    "sidebar" 80px
+    "footer" 100px;
+}
+/* media query*/
+/*Cuando el mínimo de ancho 
+sea 1024px */
+@media (min-width:1024px){
+    .contenedor{
+    grid-template: 
+    "header navbar" 300px
+    "sidebar main" 300px
+    "footer footer" 100px / /* cuando se pone diagonal los valores son por columna*/
+    200px auto
+    ;
+}
+}
+@media (min-width:1440px){
+    .contenedor{
+    grid-template: 
+    "header header sidebar" 100px
+    "navbar main sidebar" 500px
+    "navbar footer ." 100px  /
+    200px auto 200px
+    ;
+}
+}
+.header{
+    grid-area: header;
+    background: purple;
+}
+.navbar{
+    grid-area: navbar;
+    background: green;
+}
+.sidebar{
+    grid-area: sidebar;
+    background: orange;
+}
+.main{
+    grid-area: main;
+    background: darkcyan;
+}
+.footer{
+    grid-area: footer;
+    background: yellow;
+}

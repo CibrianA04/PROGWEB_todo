@@ -1,0 +1,35 @@
+HTML = Lenguaje de Etiquetas de Hipertexto
+Etiquetas = 
+<ETIQUETAS>  </ETIQUETA> Apertura y Cierre
+<Etiqueta> Solo Apertura 
+<Etiqueta/> Apertura y cierre simultaneo 
+
+Funciòn: efecto, semanticas
+
+<p></p> Etiqueta de Parrafo 
+
+command + shift + 7 para comentarios
+
+flexbox y ccs 3 grid
+
+solo poner h1 una sola vez
+
+nav>ul>li*5 
+
+no poner section adentro de otra section 
+
+main es para decir lo importante de la pagina
+aside es para decir que no es importante para la pagina
+
+NO USAR DIVS
+
+ninguna etiqueta semantica refleja efectos o diseños, son informaciòn y estructura para el navegador
+
+
+selectores: 
+    pseudoelementos
+    etiquetas
+    identificadores
+    clases
+    media queries
+    
