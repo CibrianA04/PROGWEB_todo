@@ -5,6 +5,14 @@ body {
     margin: 0px auto;
     max-width: 723px;
 }
+.contenedor{
+    display: grid;
+    grid-template: 
+    "header header"
+    "navbar navbar"
+    "links principal"
+    "progresso principal";
+}
 .cubes {
     display: grid;
     gap: 5px;
@@ -36,12 +44,14 @@ body {
     background: rgb(36, 93, 146);
     padding: 10px 0px;
     text-align: center;
+    grid-area: header;
 }
 .header img{
     width: 150px;
 }
 .links{
     background: rgb(30, 73, 114);
+    grid-area: links;
     color: white;
     font-size: 0.6em;
     width: 150px;
@@ -61,6 +71,7 @@ body {
 }
 .navbar{
     background: rgb(239, 239, 239);
+    grid-area: navbar;
     text-align: right;
     padding: 10px 5px;
 }
@@ -104,12 +115,18 @@ body {
 .panels img{
     width: 150px;
 }
+.principal{
+    background: white;
+    grid-area: principal;
+    padding: 5px;
+}
 .principaltitulos{
     color: rgb(174, 174, 174);
     font-size: 0.6em;
 }
 .progress{
     background: white;
+    grid-area: progresso;
     color: black;
     font-size: 0.6em;
     margin-top: 10px;
@@ -131,10 +148,21 @@ body {
 }
 .usuarios{
     text-align: center;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
 }
 .usuarios article{
     background: rgb(74, 106, 174);
     color: white;
     padding: 10px;
     vertical-align: top;
+}
+.usuarios input {
+    background: rgb(91, 190, 224);
+    border: 1px solid rgb(91, 190, 224);
+    color: white;
+}
+.usuarios img{
+    width: 100px;
 }
