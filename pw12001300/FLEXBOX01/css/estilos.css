@@ -1,0 +1,36 @@
+.contenedor{
+    background: khaki;
+    border: 1px solid black;
+    height: 400px;
+    padding: 5px;
+    display: flex;
+    /*flex-direction: row;
+    flex-wrap: nowrap;*/
+    flex-flow: row nowrap;
+    /*justify-content: start;*/
+    /*justify-content: end;*/
+    /*justify-content: space-around;*/
+    /*justify-content: space-between;*/
+    /*justify-content: space-evenly;*/
+    justify-content: center;
+    /*Para eje cruzado o cross axis*/
+    align-items: center; /* valor por defecto*/
+}
+.box{
+    border: 3px solid black;
+    font-size: 30px;
+    margin: 15px;
+    width: 100px;
+}
+.b1{
+    order: 1;
+    flex-grow: 0;
+}
+.b2{
+    order: 2;
+    flex-grow: 1;
+}
+.b3{
+    order: 3;
+    flex-grow: 0;
+}
