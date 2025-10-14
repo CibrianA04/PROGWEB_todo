@@ -37,3 +37,10 @@ header input[type="submit"]{
     color: var(--color-blanco);
     padding: 5px 10px;
 }
+.help {
+    height: 200px;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
