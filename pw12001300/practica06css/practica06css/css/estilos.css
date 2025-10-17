@@ -10,15 +10,23 @@ body{
     font-size: 16px;
     font-family: sans-serif;
     margin: 0px auto;
+    display: grid;
+    grid-template:
+    "header "
+    "help "
+    "main "
+    "footer"
+    ;
 }
 .copy-info{
-    align-self: flex-end;
+    align-self: end;
 }
 .footer{
     background: var(--color-negro);
     color: var(--color-blanco);
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
     height: 250px;
     margin-top: 40px;
 }
@@ -32,14 +40,16 @@ body{
     background: var(--color-negro);
     color: var(--color-blanco);
     padding: 10px 0px;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 .header img{
     width: 40px;
     vertical-align: middle;
 }
-header input[type="submit"]{
+.header input[type="submit"]{
     background: var(--color-negro);
     border: 1px solid var(--color-blanco);
     border-radius: 5px;
@@ -57,10 +67,9 @@ header input[type="submit"]{
     background: var(--fondo-ayuda);
     height: 200px;
     font-size: 2.5em;
-    display: flex;
+    display: grid;
     text-align: center;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
 }
 .help input{
     font-size: 0.5em;
@@ -68,19 +77,22 @@ header input[type="submit"]{
     width: 400px;
 }
 .main{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 60px;
-    justify-content: center;
-    margin-top: 80px;
+    justify-items: center;
+    margin: 80px 40px 0px 40px;
 }
 .main img{
     margin-right: 10px;
     width: 50px;
 }
 .main-info{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
     width: 350px;
+    align-items: start;
 }
 .main-link{
     color: var(--color-enlace);
