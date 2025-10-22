@@ -37,4 +37,30 @@ console.log(id1)
 let usuario={nombre:"Martin", [id1]: 48}
 console.log(`${usuario.nombre} ${usuario[id1]}`);
 
+let variablesnulas = null;
+console.log(variablesnulas);
+
+const PI = 3.141592;
+console.log(PI);
+
+//ARREGLOS
+let arreglo = [];
+console.log(arreglo);
+arreglo=[1,2,3];
+console.log(arreglo);
+arreglo.push(4);
+console.log(arreglo);
+arreglo.pop();
+console.log(arreglo);
+//sacar el primer elemento del arreglo
+arreglo.shift();
+console.log(arreglo);
+//agregar un elemento a la primera posicion
+arreglo.unshift(10);
+console.log(arreglo);
+
+let objeto = {nombre:"Martin", edad:48}
+console.log(Object.keys(objeto));
+console.log(Object.values(objeto));
+console.log(Object.entries(objeto));
 
