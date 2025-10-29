@@ -6,7 +6,14 @@
     <title>Eventos</title>
     <link rel="stylesheet" href="css/eventos.css">
 </head>
-<body>
+<body> 
+
+    <article class="zonainicial">
+    <article id="arrastra" draggable="true">Arrástrame</article>
+    </article>
+    <article id="zonasoltar"> <span  class = "texto">Zona para soltar </span></article>    
+
+
     <h1>Lista de elementos</h1>
     <article>
         <input type="text" id="elemento" placeholder="Agrega un elemento">
@@ -14,8 +21,7 @@
         <ul id="listadinamica"></ul>
     </article>
 
-    <article id="arrastra" draggable="true">Arrástrame</article>
-    <article id="zonasoltar">Zona para soltar</article>
+
     <script src="js/eventos.js"></script>
 </body>
 </html>
