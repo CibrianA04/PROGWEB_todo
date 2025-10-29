@@ -35,7 +35,19 @@ zonasoltar.addEventListener("dragover",function(e){
     event.preventDefault();
 });
 zonasoltar.addEventListener("drop",function(e){
-    this.append(arrastra);
     arrastra.style.border="none";
     texto.style.display="none";
+    this.append(arrastra);
+
+});
+zonainicial.addEventListener("dragover",function(e){
+    //zonasoltar olvida que no se pueden
+    //arrastrar elementos sobre el
+    event.preventDefault();
+});
+zonainicial.addEventListener("drop",function(e){
+    arrastra.style.border="none";
+    texto.style.display="none";
+    this.append(arrastra);
+
 });
