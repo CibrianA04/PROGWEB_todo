@@ -1,22 +1,48 @@
-const url = 'https://randomuser.me/api/';
+const url = 'https://randomuser.me/api/?results=12';
 
-const nombre = document.querySelector('#nombre');
-const foto = document.querySelector('#foto');
-const direccion = document.querySelector('#direccion');
-const telefono = document.querySelector('#telefono');
-const boton = document.querySelector('#button');
 
+let boton = document.querySelector('#button');
+let lista = document.querySelector('#lista-personas');
+
+const agregarPersonaLista = (persona) => { 
+    lista.classList.add('lista-personas');
+    const tarjeta = document.createElement('article');
+    tarjeta.classList.add('tarjeta');
+
+    const foto = document.createElement('img');
+    foto.setAttribute('src', persona.picture.large);
+
+    const nombre = document.createElement('article');
+    nombre.textContent = persona.name.first+' '+persona.name.last;
+
+    const direccion = document.createElement('article');
+    direccion.textContent = persona.location.street.name;
+
+    const telefono = document.createElement('article');
+    telefono.textContent = persona.phone;
+
+    tarjeta.appendChild(foto);
+    tarjeta.appendChild(nombre);
+    tarjeta.appendChild(direccion);
+    tarjeta.appendChild(telefono);
+
+    lista.appendChild(tarjeta);
+}
 const obtenerPersona = () => {
+    //limpio la lista de personas antes de agregar nuevas
+    lista.innerHTML = '';
     fetch(url) 
     .then( respuesta => respuesta.json() )
     .then(respuesta => {
-        //console.log(respuesta);
-        respuesta.results.forEach(persona => {
-            nombre.textContent = persona.name.first+' '+persona.name.last;
-            foto.setAttribute('src', persona.picture.large);
-            direccion.textContent = persona.location.street.name;
-            telefono.textContent = persona.phone;
-        });
+            respuesta.results.forEach(persona => {
+                agregarPersonaLista(persona);
+          
+            });
+        
     });
 }
+
+boton.addEventListener('click', () => {
+    obtenerPersona();
+});
 obtenerPersona();

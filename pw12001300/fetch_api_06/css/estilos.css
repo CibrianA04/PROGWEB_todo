@@ -1,9 +1,23 @@
+html{
+    /* para que no tome en cuenta el padding y border en el width y height */
+    box-sizing: border-box;
+}
 body{
     background-color: bisque;
     font-family: sans-serif;
     font-size: 16px;
     margin: 0px auto;
     width: 1024px;
+}
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+.lista-personas{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 button{
     background-color: green;
@@ -13,15 +27,16 @@ button{
 }
 .tarjeta{
     border: 2px dashed gray;
+    border-radius: 10px;
     display: flex;
     flex-flow: column wrap;
     gap: 10px;
     justify-content: center;
     align-items: center;
     margin: 0px auto;
-    margin-top: 20px;
-    padding: 20px;
-    width: 350px;
+    margin-top: 40px;
+    padding: 0px;
+    width: 200px;
 }
 #direccion, #telefono{
     background-color: lightgray;
