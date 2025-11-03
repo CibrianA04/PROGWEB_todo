@@ -1,0 +1,22 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "calculadora de ejemplo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "calculadora",
+    "typescript",
+    "programacion",
+    "web"
+  ],
+  "author": "Jose Alonso Cibrian Robles",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
