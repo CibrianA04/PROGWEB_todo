@@ -10,3 +10,5 @@ multiplicar(2, 4, "El resultado es: ");
 //npm install <---- para regenerar node_modules
 
 //npm run para ejecutar
+
+//npm install typescript -g <---- instalar typescript globalmente
