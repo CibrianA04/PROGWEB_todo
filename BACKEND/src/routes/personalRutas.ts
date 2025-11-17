@@ -26,5 +26,32 @@ router.post('/', async (req:Request, res:Response)=>{
         res.status(400).send('Error en los datos enviados');
     }
 });
+//modificar datos
+router.put('/:id', async (req:Request, res:Response)=>{
+    try {
+        const {id, nombre, direccion, telefono, estatus} = req.body;
+        const modificado = await personalServices.modificarPersonal({
+            id, 
+            nombre, 
+            direccion, 
+            telefono, 
+            estatus
+        });
+        res.send(modificado);
+    } catch (error) {
+        res.status(400).send('Error en los datos enviados');
+    }
+});
+
+//eliminar o borrar datos de un personal
+router.delete('/:id', async (req:Request, res:Response)=>{
+    try {
+        const {id} = req.body;
+        const eliminado = await personalServices.borrarPersonal(Number(id));
+        res.send(eliminado);
+    } catch (error) {
+        res.status(400).send('Error en los datos enviados');
+    }
+});
 
 export default router;

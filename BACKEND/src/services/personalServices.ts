@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-import { type PersonalNuevo } from '../typesPersonal.js'; 
+import type { Personal, PersonalNuevo } from '../typesPersonal.js'; 
 
 const conexion = mysql.createPool({
     host: 'localhost',
@@ -33,3 +33,22 @@ export const agregarPersonal = async (nuevo: PersonalNuevo) => {
         return{ error: "No se puede agregar al personal"};
     }
 }
+
+export const modificarPersonal = async (modificado:Personal) => { 
+    try {
+        const [result] = await conexion.query("UPDATE personal SET nombre = ?, direccion = ?, telefono = ?, estatus = ? WHERE id = ?",
+        [modificado.nombre, modificado.direccion, modificado.telefono, modificado.estatus, modificado.id]);
+        return result;
+    } catch (error) {
+        return{ error: "No se puede modificar al personal"};
+    }
+}
+
+export const borrarPersonal = async (id:number) => {
+    try {
+        const [result] = await conexion.query("DELETE FROM personal WHERE id = ?", [id]);
+        return result;
+    } catch (error) { 
+        return{ error: "No se puede eliminar al personal"};
+    }
+ }
