@@ -8,7 +8,6 @@ app.use(express.json());
 import personalRutas from './routes/personalRutas.js';
 // /api/personal <-- ruta base
 app.use('/api/personal/', personalRutas);
-
 //Para escuchar las peticiones del frontend
 const PUERTO = 3001;
 //Rutas
