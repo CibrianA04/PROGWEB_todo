@@ -3,7 +3,11 @@
         <h3></h3>
         <h3>Personal</h3>
         <div>
-            <button class="btn btn-sm btn-outline-primary">Agregar</button>
+            <router-link :to ="{path: '/personal/agregar'}">
+            <button class="btn btn-sm btn-outline-primary">
+            Agregar <i class="fa fa-plus"></i>
+            </button>
+        </router-link>
         </div>
     </section>
     <table class="table table-striped">
@@ -38,5 +42,9 @@
 </script>
 
 <style scoped>
-
+    section{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+    }
 </style>
