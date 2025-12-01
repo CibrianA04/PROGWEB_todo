@@ -2,10 +2,11 @@
     <div class="container mt-5" v-if="personal[0]">
         <div class="card">
             <div class="card-header">
-                <h4>Editar personal</h4>
+                <h4>Borrar personal</h4>
             </div>
-            <div v-if="mensaje == 1" class="alert alert-success" role="alert">
-                Personal editado correctamente
+            <div class="alert alert-warning" role="alert">
+               ¿Está seguro de que desea borrar la informacion?
+                <i class="fa fa-warning"></i>
             </div>
             <div class="card-body">
                 <div class="mb-3">
@@ -14,23 +15,23 @@
                 </div>
                 <div class="mb-3">
                     Nombre
-                    <input type="text" class="form-control" v-model="personal[0].nombre">
+                    <input type="text" class="form-control" v-model="personal[0].nombre" disabled>
                 </div>
                 <div class="mb-3">
                     Dirección
-                    <input type="text" class="form-control" v-model="personal[0].direccion">
+                    <input type="text" class="form-control" v-model="personal[0].direccion" disabled>
                 </div>
                 <div class="mb-3">
                     Teléfono
-                    <input type="text" class="form-control" v-model="personal[0].telefono">
+                    <input type="text" class="form-control" v-model="personal[0].telefono" disabled>
                 </div>
                 <div class="mb-3">
                     Estatus
-                    <input type="text" class="form-control" v-model="personal[0].estatus">
+                    <input type="text" class="form-control" v-model="personal[0].estatus" disabled>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-primary" @click="actualizarPersonal(personal[0])">
-                        Actualizar
+                    <button class="btn btn-danger" @click="borrarPersonal(personal[0])">
+                        Borrar
                     </button>
                 </div>
             </div>
@@ -39,18 +40,30 @@
 </template>
 
 <script setup lang="ts">
-    import {ref, onMounted } from "vue";
-    import { useRoute } from "vue-router";
+    import {ref, onMounted, watch } from "vue";
+    import { useRoute, useRouter } from "vue-router";
     import { usePersonal } from "../controladores/usePersonal";
-    const { traePersonalId, mensaje, personal, actualizarPersonal } = usePersonal();
+    const { traePersonalId, mensaje, personal, actualizarPersonal, borrarPersonal } = usePersonal();
 
     let idPersona = 0;
+    //parametros de la URL
     const route = useRoute()
+    //Moverme de URL
+    const routerRedirect = useRouter();
+    //observador 
+    watch(
+    () => mensaje.value, 
+    newId =>{
+         routerRedirect.push('/personal');
+    }
+    )
+
 
     onMounted(async() => {
         idPersona = Number(route.params.id);
         await traePersonalId(Number(idPersona));
     });
+
 </script>
 
 <style scoped>
