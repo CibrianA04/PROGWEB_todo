@@ -1,55 +1,52 @@
 import express, {} from 'express';
 import * as personalServices from '../services/personalServices.js';
-//activamos las rutas 
+//Activamos las Rutas
 const router = express.Router();
-//http://localhost:3001/api/personal/
+// http://localhost:3001/api/personal/
 router.get('/', async (_req, res) => {
     let personal = await personalServices.obtienePersonal();
     res.send(personal);
 });
-//http://localhost:3001/api/personal/1 <--- 
+// http://localhost:3001/api/personal/1
 router.get('/:id', async (req, res) => {
-    let idPersona = Number(req.params.id);
-    let personal = await personalServices.encuentraPersonal(idPersona);
+    let personal = await personalServices.encuentraPersonal(Number(req.params.id));
     res.send(personal);
 });
-//Agregar una persona nueva
 router.post('/', async (req, res) => {
     try {
         const { nombre, direccion, telefono, estatus } = req.body;
-        const nuevo = await personalServices.agregarPersonal({ nombre, direccion, telefono, estatus });
+        const nuevo = await personalServices.agregarPersonal({
+            nombre, direccion, telefono, estatus
+        });
         res.send(nuevo);
     }
     catch (error) {
-        res.status(400).send('Error en los datos enviados');
+        res.send('No se puede agregar el personal');
+        // res.status(400).send('Error en los datos');
     }
 });
-//modificar datos
-router.put('/:id', async (req, res) => {
+//Modificar datos
+router.put('/', async (req, res) => {
     try {
         const { id, nombre, direccion, telefono, estatus } = req.body;
         const modificado = await personalServices.modificarPersonal({
-            id,
-            nombre,
-            direccion,
-            telefono,
-            estatus
+            id, nombre, direccion, telefono, estatus
         });
         res.send(modificado);
     }
     catch (error) {
-        res.status(400).send('Error en los datos enviados');
+        res.status(400).send("Error en los datos");
     }
 });
-//eliminar o borrar datos de un personal
-router.delete('/:id', async (req, res) => {
+//Eliminar o borrar datos de personal
+router.delete('/', async (req, res) => {
     try {
         const { id } = req.body;
         const eliminado = await personalServices.borrarPersonal(Number(id));
         res.send(eliminado);
     }
     catch (error) {
-        res.status(400).send('Error en los datos enviados');
+        res.status(400).send("Error en los datos");
     }
 });
 export default router;

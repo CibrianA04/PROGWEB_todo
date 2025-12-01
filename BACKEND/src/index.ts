@@ -1,26 +1,28 @@
 import express from 'express';
-import cors from 'cors'; 
-//Creamos la aplicacion a traves del paquete express
+import cors from 'cors';
+//Creamos la aplicación a través del paquete express
 //y llamamos a su constructor
 const app = express();
-//todo lo que regresa al usuario es en formato json
-app.use(express.json());
-app.use(cors());
-//configurar las rutas para el acceso a personal
+//Configurar rutas para el acceso a personal
 import personalRutas from './routes/personalRutas.js';
-// /api/personal <-- ruta base
-app.use('/api/personal/', personalRutas);
-
-//Para escuchar las peticiones del frontend
+//Todo lo que regresa al usuario es tipo JSON
+app.use(express.json());
+app.use(cors()); //Permitir al frontend conectarse
+//Puerto para escuchar la petición del frontend
 const PUERTO = 3001;
-//Rutas
-//app.get('/',(_req, res)=>{
-//    res.send('Estoy en la raiz del servidor API');
-//})
-//app.get('/Hola',(_req, res)=>{
-//    res.send('Estoy en Hola del servidor API');
-//})
-//encendemos el servidor y lo ponemos a escuchar peticiones
-app.listen(PUERTO, () => {
-    console.log(`Servidor encendido escuchando el puerto: ${PUERTO}`);
-});
+
+//Activar la ruta base
+app.use('/api/personal',personalRutas);
+
+//Ruta
+// app.get('/',(_req,res) =>{
+//     res.send("Ruta raíz del servidor API");
+// })
+// app.get('/hola',(_req,res) =>{
+//     res.send("Ruta hola del servidor API");
+// })
+
+//Encendemos el servidor y lo ponemos en escucha
+app.listen(PUERTO,() =>{
+    console.log(`Servidor encendido y escuchando en el puerto ${PUERTO}`)
+})

@@ -3,7 +3,7 @@
   "compilerOptions": {
     // File Layout
     // "rootDir": "./src",
-      "outDir": "./build",
+    "outDir": "./build",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -16,28 +16,21 @@
     // and npm install -D @types/node
 
     // Other Outputs
-    //"sourceMap": true,
-    //"declaration": true,
-    //"declarationMap": true,
+    // "sourceMap": true,
+    // "declaration": true,
+    // "declarationMap": true,
 
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
     // Style Options
-      "noImplicitReturns": true,
+    "noImplicitReturns": true,
     // "noImplicitOverride": true,
-
-    //variables locales nos obligue a usarlas
     "noUnusedLocals": true,
-    //parametros que nos obligue a usarlos
-      "noUnusedParameters": true,
-      
+    "noUnusedParameters": true,
     // "noFallthroughCasesInSwitch": true,
     // "noPropertyAccessFromIndexSignature": true,
-
-    //cuando queremos usar un archivo json de datos
-    "resolveJsonModule": true,
 
     // Recommended Options
     "strict": true,
@@ -47,5 +40,6 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+    "resolveJsonModule": true,
   }
 }

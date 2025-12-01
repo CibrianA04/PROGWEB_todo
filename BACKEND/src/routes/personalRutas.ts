@@ -2,20 +2,20 @@ import express, {type Request,type Response} from 'express';
 import * as personalServices from '../services/personalServices.js';
 //Activamos las Rutas
 const router = express.Router();
- 
+
 // http://localhost:3001/api/personal/
 router.get('/',async (_req:Request,res:Response) =>{
     let personal = await personalServices.obtienePersonal();
     res.send(personal);
 });
- 
+
 // http://localhost:3001/api/personal/1
 router.get('/:id',async (req:Request,res:Response) =>{
     let personal = await personalServices.encuentraPersonal(Number(req.params.id));
     res.send(personal);
 });
- 
- 
+
+
 router.post('/',async (req:Request,res:Response) => {
     try {
         const {nombre,direccion,telefono,estatus} = req.body;
@@ -28,7 +28,7 @@ router.post('/',async (req:Request,res:Response) => {
         // res.status(400).send('Error en los datos');
     }
 });
- 
+
 //Modificar datos
 router.put('/',async (req:Request,res:Response) => {
     try {
@@ -41,7 +41,7 @@ router.put('/',async (req:Request,res:Response) => {
         res.status(400).send("Error en los datos");
     }
 });
- 
+
 //Eliminar o borrar datos de personal
 router.delete('/',async (req:Request,res:Response) => {
     try {
@@ -52,6 +52,5 @@ router.delete('/',async (req:Request,res:Response) => {
         res.status(400).send("Error en los datos");
     }
 });
- 
+
 export default router;
- 
